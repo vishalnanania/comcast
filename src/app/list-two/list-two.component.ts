@@ -19,7 +19,28 @@ export class ListTwoComponent implements OnInit {
   ngOnInit() {
     this.dataService.getData()
       .subscribe(
-        (response) => { this.dataList = response.json(); },
+        (response) => {
+        var responseData = response.json();
+        var modifiedData = [];
+        responseData.map((z,i)=> {
+          var duplicate = false;
+          var modifiedObj = {};
+          if(modifiedData.length > 0){
+            modifiedData.map((x,index)=>{
+              if(x.name == z.name){
+              duplicate = true;
+              modifiedData[index][z.category]=z.amount;
+              }
+            });
+          }
+          if(!duplicate){
+            modifiedObj["name"]=z.name;
+            modifiedObj[z.category]=z.amount;
+            modifiedData.push(modifiedObj);
+          }
+        });
+        this.dataList = modifiedData;
+        },
         (error) => { console.log(error)},
     );
   }

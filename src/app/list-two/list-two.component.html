@@ -6,21 +6,26 @@
         Name
         <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'name', 'glyphicon-triangle-top': (column == 'name' && isDesc), 'glyphicon-triangle-bottom': (column == 'name' && !isDesc) }"> </i>
       </th>
-      <th class="pointer" (click)="sort('category')">
-        Category
-        <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'category', 'glyphicon-triangle-top': (column == 'category' && isDesc), 'glyphicon-triangle-bottom': (column == 'category' && !isDesc) }"> </i>
+      <th class="pointer" (click)="sort('C1')">
+        C1
+        <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'C1', 'glyphicon-triangle-top': (column == 'C1' && isDesc), 'glyphicon-triangle-bottom': (column == 'C1' && !isDesc) }"> </i>
       </th>
-      <th class="pointer" (click)="sort('amount')">
-        Amount
-        <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'amount', 'glyphicon-triangle-top': (column == 'amount' && isDesc), 'glyphicon-triangle-bottom': (column == 'amount' && !isDesc) }"> </i>
+      <th class="pointer" (click)="sort('C2')">
+        C2
+        <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'C2', 'glyphicon-triangle-top': (column == 'C2' && isDesc), 'glyphicon-triangle-bottom': (column == 'C2' && !isDesc) }"> </i>
+      </th>
+      <th class="pointer" (click)="sort('C3')">
+        C3
+        <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'C3', 'glyphicon-triangle-top': (column == 'C3' && isDesc), 'glyphicon-triangle-bottom': (column == 'C3' && !isDesc) }"> </i>
       </th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let list of dataList | sorting: {property: column, direction: direction}">
       <td>{{list.name}}</td>
-      <td>{{list.category}}</td>
-      <td>{{list.amount}}</td>
+      <td>{{list.C1?list.C1:'-'}}</td>
+      <td>{{list.C2?list.C2:'-'}}</td>
+      <td>{{list.C3?list.C3:'-'}}</td>
     </tr>
     </tbody>
   </table>
