@@ -1,0 +1,27 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th class="pointer" (click)="sort('name')">
+        Name
+        <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'name', 'glyphicon-triangle-top': (column == 'name' && isDesc), 'glyphicon-triangle-bottom': (column == 'name' && !isDesc) }"> </i>
+      </th>
+      <th class="pointer" (click)="sort('category')">
+        Category
+        <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'category', 'glyphicon-triangle-top': (column == 'category' && isDesc), 'glyphicon-triangle-bottom': (column == 'category' && !isDesc) }"> </i>
+      </th>
+      <th class="pointer" (click)="sort('amount')">
+        Amount
+        <i class="glyphicon" [ngClass]="{'glyphicon-triangle-top glyphicon-triangle-bottom': column != 'amount', 'glyphicon-triangle-top': (column == 'amount' && isDesc), 'glyphicon-triangle-bottom': (column == 'amount' && !isDesc) }"> </i>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let list of dataList | sorting: {property: column, direction: direction}">
+      <td>{{list.name}}</td>
+      <td>{{list.category}}</td>
+      <td>{{list.amount}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

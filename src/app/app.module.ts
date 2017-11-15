@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { DataService } from './http-request/data.service';
 import { ListOneComponent } from './list-one/list-one.component';
 import { ListOnePipe } from './list-one/list-one.pipe';
+import { HeaderComponent } from './header/header.component';
+import { ListTwoComponent } from './list-two/list-two.component';
 
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListOneComponent,
-    ListOnePipe
+    ListOnePipe,
+    HeaderComponent,
+    ListTwoComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
