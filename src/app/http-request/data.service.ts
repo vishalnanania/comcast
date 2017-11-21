@@ -6,6 +6,7 @@ export class DataService {
 
  constructor(private http: Http) { }
 
+ //get json data from list
  getData(){
    return this.http.get('assets/json/data.json');
  }

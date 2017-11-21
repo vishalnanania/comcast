@@ -1,12 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../http-request/data.service';
 
 @Component({
   selector: 'app-list-one',
   templateUrl: './list-one.component.html',
-  styleUrls: ['./list-one.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./list-one.component.css']
 })
 export class ListOneComponent implements OnInit {
   dataList: any[];
@@ -17,6 +16,7 @@ export class ListOneComponent implements OnInit {
   constructor(private dataService: DataService){}
 
   ngOnInit() {
+    //assign data to list once we get data from http call.
     this.dataService.getData()
       .subscribe(
         (response) => { this.dataList = response.json(); },
@@ -24,6 +24,7 @@ export class ListOneComponent implements OnInit {
     );
   }
 
+  //sorting operation based on property name and direction.
   sort(property){
     this.isDesc = !this.isDesc; //change the direction
     this.column = property;
