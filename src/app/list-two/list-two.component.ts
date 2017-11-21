@@ -1,12 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../http-request/data.service';
 
 @Component({
   selector: 'app-list-two',
   templateUrl: './list-two.component.html',
-  styleUrls: ['./list-two.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./list-two.component.css']
 })
 export class ListTwoComponent implements OnInit {
   dataList: any[];
@@ -17,6 +16,7 @@ export class ListTwoComponent implements OnInit {
   constructor(private dataService: DataService){}
 
   ngOnInit() {
+    //assigning data to list after modifing data using map.
     this.dataService.getData()
       .subscribe(
         (response) => {
@@ -45,6 +45,7 @@ export class ListTwoComponent implements OnInit {
     );
   }
 
+  //sorting operation based on property and direction.
   sort(property){
     this.isDesc = !this.isDesc; //change the direction
     this.column = property;
